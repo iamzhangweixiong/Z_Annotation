@@ -1,0 +1,32 @@
+Annotation:
+
+APT - Annotation Processing Tool
+
+一、标准 Annotation
+    包括 Override, Deprecated, SuppressWarnings，是java自带的几个注解，他们由编译器来识别，不会进行编译，不影响代码运行。
+
+二、元 Annotation
+    用来定义 Annotation 的 Annotation。也就是当我们要自定义注解时，需要使用它们
+
+    @Retention:标识注解类型，即APT在什么时候处理注解
+        a、@Retention(RetentionPolicy.SOURCE)：用于源码阶段，即java文件阶段，编译时将被编译器丢弃
+        b、@Retention(RetentionPolicy.CLASS)：由编译器记录在class文件中，虚拟机在运行时不保留。这是默认行为。
+        c、@Retention(RetentionPolicy.RUNTIME)：注释在源代码，class文件中可用，并且在运行时保留。
+
+    @Target:注解可以使用的地方，使用出错编译器会报错
+        a、@Target(ElementType.TYPE)：用于修饰Class、interface (including annotation type)、or enum
+        b、@Target(ElementType.FIELD)：修饰成员变量、枚举常量
+        c、@Target(ElementType.METHOD)：修饰方法
+        d、@Target(ElementType.PARAMETER)：修饰方法的参数
+        e、@Target(ElementType.CONSTRUCTOR)：修饰构造器
+        f、@Target(ElementType.LOCAL_VARIABLE)：修饰局部变量
+        g、@Target(ElementType.ANNOTATION_TYPE)：修饰注解类型
+        h、@Target(ElementType.PACKAGE)：修饰 package
+        i、@Target(ElementType.TYPE_PARAMETER)：修饰类型参数？（1.8加入）
+        j、@Target(ElementType.TYPE_USE)：？（1.8加入）
+
+    @Inherited:用于标注某个注解是被继承的，即父类中使用了一个 Annotation，则子类继承父类的这个 Annotation，Annotation 需要标记为RUNTIME的才可以。
+
+    @Documented:可以被 javadoc 的工具文档化
+
+三、自定义 Annotation
