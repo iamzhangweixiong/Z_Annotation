@@ -25,7 +25,7 @@ APT - Annotation Processing Tool
         i、@Target(ElementType.TYPE_PARAMETER)：修饰类型参数？（1.8加入）
         j、@Target(ElementType.TYPE_USE)：？（1.8加入）
 
-    @Inherited:用于标注某个注解是被继承的，即父类中使用了一个 Annotation，则子类继承父类的这个 Annotation，Annotation 需要标记为RUNTIME的才可以。
+    @Inherited:用于标注某个注解是被继承的，即父类中使用了一个 Annotation，则子类也会继承父类的这个 Annotation，Annotation 需要标记为RUNTIME的才可以。
 
     @Documented:可以被 javadoc 的工具文档化
 
